@@ -40,14 +40,14 @@ public class LoginTest extends BaseTestLogin {
 
     }
 
-    /*@Test(dataProvider = "LoginJson",priority = 2)
+    @Test(dataProvider = "LoginJson",priority = 2)
     public void mainLoginTest(LoginModel loginModel) throws InterruptedException {
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 
         loginPage.LoginFlow(loginModel);
 
     }
-*/
+
 
 
 
