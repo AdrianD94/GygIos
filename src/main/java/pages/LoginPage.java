@@ -79,13 +79,21 @@ public class LoginPage {
 
 
     public void LoginFlow(LoginModel model) throws InterruptedException {
-    System.out.println(model.getEmailAddress());
+
+        WebDriverWait wait=new WebDriverWait(driver,20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@placeholder='E-mail address']")));
+        driver.findElement(By.xpath("//*[@placeholder='E-mail address']")).sendKeys("adytestare+2202d@gmail.com");
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@placeholder='Password']")));
+        driver.findElement(By.xpath("//*[@placeholder='Password']")).click();
+        driver.findElement(By.xpath("//*[@placeholder='Password']")).sendKeys("test");
+        driver.findElement(By.xpath("//*[@text='Log In']")).click();
+
 
     }
 
     public void ForgotPassword(LoginModel model) throws InterruptedException {
 
-        WebDriverWait wait=new WebDriverWait(driver,20);
+        WebDriverWait wait=new WebDriverWait(driver,50);
 
         wait.until(ExpectedConditions.visibilityOf(forgotPasswordLink));
         forgotPasswordLink.click();
