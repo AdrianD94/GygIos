@@ -84,12 +84,16 @@ public class OrderPage {
     @FindBy (how = How.ID, using = "Success")
     private WebElement successScreen;
     //-----------------------------------------------------------------------------------------------
+    @FindBy (how = How.ID, using = "Bakewell")
+    private WebElement reorderHomeScreenButton;
 
+    @FindBy (how = How.ID, using = "REORDER")
+    private WebElement reorderButton;
 
 
     public void AddProductToCart(String storeName) throws InterruptedException {
 
-        WebDriverWait wait=new WebDriverWait(driver,50);
+        WebDriverWait wait=new WebDriverWait(driver,60);
         wait.until(ExpectedConditions.visibilityOf(homeScreenOrderButton));
         homeScreenOrderButton.click();
         wait.until(ExpectedConditions.visibilityOf(chooseGygScreen));
@@ -128,13 +132,34 @@ public class OrderPage {
 
     }
 
-    public void CheckChurosScenario(String storeName) throws InterruptedException {
 
-    }
 
 
     public void reorder(String storeName) throws InterruptedException {
 
+        WebDriverWait wait=new WebDriverWait(driver,50);
+        wait.until(ExpectedConditions.visibilityOf(reorderHomeScreenButton));
+        reorderHomeScreenButton.click();
+
+        wait.until(ExpectedConditions.visibilityOf(chooseGygScreen));
+        searchGygField.sendKeys(storeName);
+        //wait.until(ExpectedConditions.visibilityOf(searchGygFieldFirstResult));
+        //searchGygFieldFirstResult.click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@text='"+storeName+"' and @class='UIAStaticText']"))));
+        driver.findElement(By.xpath("//*[@text='"+storeName+"' and @class='UIAStaticText']")).click();
+        wait.until(ExpectedConditions.visibilityOf(homeScreenOrderButton));
+        reorderButton.click();
+
+        wait.until(ExpectedConditions.visibilityOf(addPay));
+        addPay.click();
+        wait.until(ExpectedConditions.visibilityOf(payment));
+        payment.click();
+        //Thread.sleep(3000);
+        //TouchAction touch = new TouchAction<>((PerformsTouchActions) driver);
+        //touch.press(PointOption.point(0,1244)).perform();
+        wait.until(ExpectedConditions.visibilityOf(payPall));
+        payPall.click();
+        wait.until(ExpectedConditions.visibilityOf(successScreen));
 
     }
 

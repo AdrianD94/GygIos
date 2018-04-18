@@ -93,7 +93,7 @@ public class LoginPage {
 
     public void ForgotPassword(LoginModel model) throws InterruptedException {
 
-        WebDriverWait wait=new WebDriverWait(driver,20);
+        WebDriverWait wait=new WebDriverWait(driver,50);
 
         wait.until(ExpectedConditions.visibilityOf(forgotPasswordLink));
         forgotPasswordLink.click();

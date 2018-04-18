@@ -33,11 +33,7 @@ public class OrderTest extends BaseTestLogin {
     }
 
 
-    /*@Test(dataProvider = "LoginJson",priority=2)
-    public void ChurosScenario() throws InterruptedException {
-        OrderPage loginPage = PageFactory.initElements(driver, OrderPage.class);
-        loginPage.CheckChurosScenario("Newtown");
-    }*/
+
     @Test(priority=1)
     public void Order() throws InterruptedException {
         OrderPage orderPage = PageFactory.initElements(driver, OrderPage.class);
@@ -45,7 +41,7 @@ public class OrderTest extends BaseTestLogin {
 
 
     }
-/*
+
     @Test(priority=2)
     public void Reorder() throws InterruptedException {
         OrderPage orderPage = PageFactory.initElements(driver, OrderPage.class);
@@ -53,7 +49,7 @@ public class OrderTest extends BaseTestLogin {
 
 
     }
-
+/*
     @Test(priority=3)
     public void changeRestaurantOrder() throws InterruptedException {
         OrderPage orderPage = PageFactory.initElements(driver, OrderPage.class);
